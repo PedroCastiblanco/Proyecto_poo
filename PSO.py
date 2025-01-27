@@ -1,5 +1,6 @@
 import random
 import math
+import matplotlib.pyplot as plt
 
 # Clase que representa una Partícula
 class particula:
@@ -34,6 +35,7 @@ class particula:
 fig = plt.figure()
 ax = fig.add_subplot()
 fig.show()
+
 A=[]
 
 # Clase que representa el Enjambre
@@ -57,8 +59,8 @@ class Enjambre:
             velocidad = [random.uniform(-1, 1) for _ in range(dimensiones)]
 
 
-            particula = particula(posicion, velocidad, funcion)
-            self.particulas.append(particula)
+            particulax = particula(posicion, velocidad, funcion) 
+            self.particulas.append(particulax)
 
         self.mejor_posicion_global = self.particulas[0].posicion[:]
 
@@ -74,7 +76,7 @@ class Enjambre:
     """Actualizar la velocidad y la posición de todas las partículas."""
     def actualizar_enjambre(self):
         for particula in self.particulas:
-            particula.moverse(self.mejor_posicion_global, self.factor_inercia, self.factor_cognitivo, self.factor_social)
+            particula.moverse(self.mejor_posicion_global, self.factor_inercia, self.factor_personal, self.factor_social)
 
 
     """Ejecutar el PSO durante un número de iteraciones."""
@@ -82,12 +84,12 @@ class Enjambre:
         for iteration in range(iteraciones_maximas):
             self.evaluar_enjambre()  # Evalúa partículas
             self.actualizar_enjambre()    # Actualiza partículas
-            A.append(self.function(self.mejor_posicion_global))
+            A.append(self.funcion(self.mejor_posicion_global))
             ax.plot(A,color="r")
             fig.canvas.draw()
             ax.set_xlim(left=max(0,iteration-iteraciones_maximas), right=iteration+3)
 
-        return self.mejor_posicion_general, self.funcion(self.mejor_posicion_global)
+        return self.mejor_posicion_global, self.funcion(self.mejor_posicion_global)
 
 
 # Ejemplo para minimizar una función
@@ -106,7 +108,7 @@ num_particulas = 50      # Número de partículas
 factor_inercia = 0.8
 factor_personal = 1.5               # Factor cognitivo / personal
 factor_social = 2.0                # Factor social / general
-iteraciones_maximas = 1000 # Número máximo de iteraciones
+iteraciones_maximas = 500 # Número máximo de iteraciones
 x_min = -5.15 # Límite inferior
 x_max = 5.15 # Límite superior
 
