@@ -7,6 +7,9 @@ Este método está inspirado en la naturaleza, por ejemplo, el comportamiento qu
 
 En pocas palabras los valores de las partículas se actualizan de acuerdo a la mejor posición encontrada en el enjambre, denotada por  “g”.
 
+<p align="center">
+  <img src="" />
+</p>
 
 
 Para actualizar la velocidad de las partículas en el momento “t+1” se calcula de la siguiente manera: 
