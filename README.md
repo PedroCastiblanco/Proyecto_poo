@@ -5,7 +5,11 @@ La optimización por enjambre de partículas consiste en que cada partícula es 
 
 Este método está inspirado en la naturaleza, por ejemplo, el comportamiento que tienen las bandadas de pájaros o bancos de peces en los que,  el movimiento de cada individuo es el resultado de combinar las decisiones individuales de cada una con el comportamiento del resto. 
 
-En pocas palabras los valores de las partículas se actualizan de acuerdo a la mejor posición encontrada en el enjambre, denotada por  “g” .Para actualizar la velocidad de las partículas en el momento “t+1” se calcula de la siguiente manera: 
+En pocas palabras los valores de las partículas se actualizan de acuerdo a la mejor posición encontrada en el enjambre, denotada por  “g”.
+
+
+
+Para actualizar la velocidad de las partículas en el momento “t+1” se calcula de la siguiente manera: 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0d681aee-105c-4600-a896-02c730cd1393" />
