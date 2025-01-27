@@ -36,5 +36,8 @@ En la clase partícula se tienen los métodos evaluar y, mover que evalúan  la 
 
 Como atributos que varían tenemos los limites  o bordes, la cantidad de iteraciones, la cantidad de partículas y la ecuación que será objetivo , algunos de los cuales se definirán como atributos de la clase enjambre.   
 
+Además de que enjambre distribuye  la cantidad de partículas ingresada uniformemente al inicializarse tiene los métodos *evaluar_enjambre*  ,*actualizar_emjanbre* y *run*.
 
+## Bibliografía :
++ Comparación de algoritmos de optimización con deferentes funciones y dimensiones |PSO-y-ED-López Núñez Ramírez Rodríguez.pdf
 
