@@ -21,5 +21,11 @@ En donde :
  + $\ c_1  c_2\$:Constantes de aceleración positivas usadas para escalar la contribución de los componentes cognitivos y sociales.
  + $\ g_j\$:Posición del enjambre en el momento $\ t\$ el mejor valor global.
 
+A continuación se muestra un diagrama de flujo como resumen del algoritmo:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/403c42c0-9d52-4629-a902-e7a80d4b27ce" />
+</p>
+
 
 
