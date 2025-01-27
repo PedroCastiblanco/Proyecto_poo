@@ -27,5 +27,10 @@ A continuación se muestra un diagrama de flujo como resumen del algoritmo:
   <img src="https://github.com/user-attachments/assets/403c42c0-9d52-4629-a902-e7a80d4b27ce" />
 </p>
 
+### Resolución  del problema
+Se identificaron 2 conceptos a abstraer los cuales fueron las clases luego denominadas como: **partículas y enjambre**. 
 
+Partículas a  las cuales se les dio velocidad, posición y el mejor valor de la misma definido como *fitness*.
+
+Como atributos que varían tenemos los limites  o bordes, la cantidad de iteraciones, la cantidad de partículas y la ecuación que será objetivo , la mayoría de los cuales se definirán como atributos de la clase enjambre.   
 
