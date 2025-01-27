@@ -28,9 +28,13 @@ A continuación se muestra un diagrama de flujo como resumen del algoritmo:
 </p>
 
 ### Resolución  del problema
-Se identificaron 2 conceptos a abstraer los cuales fueron las clases luego denominadas como: **partículas y enjambre**. 
+Se identificaron 2 conceptos a abstraer los cuales fueron las clases luego denominadas como: **partícula y enjambre**. 
 
-Partículas a  las cuales se les dio velocidad, posición y el mejor valor de la misma definido como *fitness*.
+Partícula a  la cual se le dio velocidad, posición y el mejor valor de la misma definido como *fitness*.
 
-Como atributos que varían tenemos los limites  o bordes, la cantidad de iteraciones, la cantidad de partículas y la ecuación que será objetivo , la mayoría de los cuales se definirán como atributos de la clase enjambre.   
+En la clase partícula se tienen los métodos evaluar y, mover que evalúan  la función objetivo en la posición actual y actualizan la velocidad y posición de la partícula respectivamente.
+
+Como atributos que varían tenemos los limites  o bordes, la cantidad de iteraciones, la cantidad de partículas y la ecuación que será objetivo , algunos de los cuales se definirán como atributos de la clase enjambre.   
+
+
 
