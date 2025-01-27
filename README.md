@@ -8,7 +8,7 @@ Este método está inspirado en la naturaleza, por ejemplo, el comportamiento qu
 En pocas palabras los valores de las partículas se actualizan de acuerdo a la mejor posición encontrada en el enjambre, denotada por  “g”.
 
 <p align="center">
-  <img src="" />
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/IMG-20250127-WA0004.jpg" />
 </p>
 
 
