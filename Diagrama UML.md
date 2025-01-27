@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class Particula {
         -posicion : list
@@ -30,3 +31,4 @@ classDiagram
     }
 
     Enjambre "1"*--"*" Particula
+```
