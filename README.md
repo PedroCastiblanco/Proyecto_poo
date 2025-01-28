@@ -83,4 +83,8 @@ Además de que enjambre distribuye  la cantidad de partículas ingresada uniform
 
 ## Bibliografía :
 + Comparación de algoritmos de optimización con deferentes funciones y dimensiones |PSO-y-ED-López Núñez Ramírez Rodríguez.pdf
-
+## Agregar
++ interfaz
++ grafica en 2 dimensiones
++ maximizar funcion
++ 
