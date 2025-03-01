@@ -87,4 +87,8 @@ Además de que enjambre distribuye  la cantidad de partículas ingresada uniform
 + interfaz
 + grafica en 2 dimensiones
 + maximizar funcion
-+ 
+  
+
+
+## Requisitos para utilizar el programa de manera local
+ + Librería customtinter v 5.2.2 (para la interfaz de usuario)
