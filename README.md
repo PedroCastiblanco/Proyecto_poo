@@ -91,4 +91,4 @@ Además de que enjambre distribuye  la cantidad de partículas ingresada uniform
 
 
 ## Requisitos para utilizar el programa de manera local
- + Librería customtinter v 5.2.2 (para la interfaz de usuario)
+ + Librería customtkinter v 5.2.2 (para la interfaz de usuario)
