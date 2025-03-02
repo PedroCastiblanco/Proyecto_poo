@@ -2,6 +2,7 @@ import random
 import math
 import matplotlib.pyplot as plt
 
+
 # Clase que representa una Partícula
 class particula:
     def __init__(self, posicion, velocidad, funcion):
@@ -56,12 +57,9 @@ class particula:
         ]
         # Actualizar posición (elemento por elemento)
         self.__posicion = [x + v for x, v in zip(self.__posicion, self.__velocidad)]
+        
 
-fig = plt.figure()
-ax = fig.add_subplot()
-fig.show()
 
-A=[]
 
 # Clase que representa el Enjambre
 class Enjambre:
@@ -77,7 +75,7 @@ class Enjambre:
         self.__dimensiones = dimensiones     # Dimensiones que se manejarán para el algoritmo
 
 
-
+        D=[]
         # Inicializar partículas
         for _ in range(num_particulas):
 
@@ -87,15 +85,11 @@ class Enjambre:
 
 
             particulax = particula(posicion, velocidad, self.__funcion) 
+            D.append(particulax.get_posicion())
             self.__particulas.append(particulax)
-
+        graf.set_posiciones_l(D)
         self.__mejor_posicion_global = self.__particulas[0].get_posicion()[:]
 
-
-    #def set_(self,):
-     #   self.= 
-    #def get_(self):
-     #   return self.
 
     """Evaluar todas las partículas y actualizar la mejor_posicion_general."""
     def evaluar_enjambre(self):
@@ -107,21 +101,61 @@ class Enjambre:
 
     """Actualizar la velocidad y la posición de todas las partículas."""
     def actualizar_enjambre(self):
+        A=[]
         for particula in self.__particulas:
             particula.moverse(self.__mejor_posicion_global, self.__factor_inercia, self.__factor_personal, self.__factor_social)
-
+            A.append(particula.get_posicion())    
+        graf.set_posiciones_l(p_ultimo=A)
+        #graf.graficar()
 
     """Ejecutar el PSO durante un número de iteraciones."""
     def run(self, iteraciones_maximas):
+        
         for iteration in range(iteraciones_maximas):
             self.evaluar_enjambre()  # Evalúa partículas
             self.actualizar_enjambre()    # Actualiza partículas
-            A.append(self.__funcion(self.__mejor_posicion_global))
-            ax.plot(A,color="r")
-            fig.canvas.draw()
-            ax.set_xlim(left=max(0,iteration-iteraciones_maximas), right=iteration+3)
+
 
         return self.__mejor_posicion_global, self.__funcion(self.__mejor_posicion_global)
+
+class di2:
+    def __init__(self):
+        self.__eje_x:list=[]
+        self.__eje_y:list=[]
+    
+    def set_iteracion(self,iteracion):
+        self.__iteracion_actual=iteracion
+
+    def get_eje_x(self):
+        return self.__eje_x[-1]
+    def get_eje_y(self):
+        return self.__eje_y[-1]
+
+    def set_posiciones_l(self,p_ultimo:list):
+        x,y=[],[]
+        for i in p_ultimo:
+            x.append(i[0])
+            y.append(i[1])
+        self.__eje_x.append(x)
+        self.__eje_y.append(y)    
+    
+    def graficar(self):
+        
+        plt.xlabel("x")
+        plt.ylabel("y")
+
+        for i in range(len(self.__eje_x)):
+            plt.clf()
+            #plt.xlim(min(self.__eje_x[i]),max(self.__eje_x[i]))
+            #plt.xlim(min(self.__eje_y[i]),max(self.__eje_y[i]))
+            #plt.xlim(-15,15)
+            #plt.ylim(-15,15)
+            plt.scatter(self.__eje_x[i],self.__eje_y[i],c="red")
+            plt.title(f"Posiciones ciclo: {i+1}")
+            plt.pause(0.001)
+        plt.show()    
+
+        
 
 
 # Ejemplo para minimizar una función
@@ -144,11 +178,12 @@ num_particulas = 50      # Número de partículas
 factor_inercia = 0.8
 factor_personal = 1.5               # Factor cognitivo / personal
 factor_social = 2.0                # Factor social / general
-iteraciones_maximas = 600 # Número máximo de iteraciones
+iteraciones_maximas = 3 # Número máximo de iteraciones
 x_min = -5.15 # Límite inferior
 x_max = 5.15 # Límite superior
 dimensiones =2 #Dimensiones de la funcion poner entre 2 y 30 
 
+graf=di2()
 # Inicializar el enjambre y ejecutar el algoritmo
 Enjambre = Enjambre(num_particulas, funcion_objetivo, x_min, x_max, factor_inercia, factor_personal, factor_social,dimensiones)
 mejor_posicion, best_value = Enjambre.run(iteraciones_maximas)
@@ -157,4 +192,5 @@ mejor_posicion, best_value = Enjambre.run(iteraciones_maximas)
 print("\nResultados finales:")
 print(f"Mejor posición encontrada: {mejor_posicion}")
 print(f"Valor óptimo: {best_value}")
-plt.show()
+graf.graficar()
+
