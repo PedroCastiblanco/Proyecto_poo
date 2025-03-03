@@ -164,7 +164,7 @@ class grafica:
             plt.scatter(self.__eje_x[i], self.__eje_y[i], c="red")
             plt.title(f"Posiciones ciclo: {i + 1}")
             plt.grid()
-            plt.pause(0.01)
+            plt.pause(0.5)
             if self.__estado_w:
                 break
             
