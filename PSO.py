@@ -5,12 +5,13 @@ import matplotlib.pyplot as plt
 
 # Clase que representa una Partícula
 class particula:
-    def __init__(self, posicion, velocidad, funcion):
+    def __init__(self, posicion, velocidad, funcion,nombre_funcion:str):
         self.__posicion = posicion  # Posición actual
         self.__velocidad = velocidad  # Velocidad actual
         self.__mejor_posicion = posicion  # Mejor posición personal
         self.__fitness = float('inf')  # Valor de la función objetivo
         self.__funcion = funcion  # Función objetivo
+        self.__nombre_funcion=nombre_funcion
 
     def set_posicion(self, posicion):
         self.__posicion = posicion
@@ -45,8 +46,8 @@ class particula:
     """Función para evaluar la 'función objetivo' en la posición actual."""
 
     def evaluar_funcion_objetivo(self):
-        self.__fitness = self.__funcion(self.__posicion)
-        if self.__fitness < self.__funcion(self.__mejor_posicion):  # Actualiza mejor_posicion si es mejor
+        self.__fitness = self.__funcion(self.__posicion,self.__nombre_funcion)
+        if self.__fitness < self.__funcion(self.__mejor_posicion,self.__nombre_funcion):  # Actualiza mejor_posicion si es mejor
             self.__mejor_posicion = self.__posicion[:]
 
     """Función para actualizar la velocidad y la posición de la partícula."""
@@ -69,7 +70,7 @@ class particula:
 # Clase que representa el Enjambre
 class Enjambre:
     def __init__(self, num_particulas, funcion, x_min, x_max, factor_inercia, factor_personal, factor_social,
-                 dimensiones=2):
+                 nombre_funcion:str, dimensiones=2  ):
         print('Llegó con dimensiones', dimensiones)
         self.__particulas = []  # Lista de partículas
         self.__mejor_posicion_global = None  # Mejor posición global
@@ -80,6 +81,7 @@ class Enjambre:
         self.__x_min = x_min  # Límite inferior del espacio de búsqueda
         self.__x_max = x_max  # Límite superior del espacio de búsqueda
         self.__dimensiones = dimensiones  # Dimensiones que se manejarán para el algoritmo
+        self.__funcion_name=nombre_funcion
 
         D = []
         # Inicializar partículas
@@ -88,18 +90,20 @@ class Enjambre:
             posicion = [random.uniform(self.__x_min, self.__x_max) for _ in range(self.__dimensiones)]
             velocidad = [random.uniform(-1, 1) for _ in range(self.__dimensiones)]
 
-            particulax = particula(posicion, velocidad, self.__funcion)
+            particulax = particula(posicion, velocidad, self.__funcion,self.__funcion_name)
             D.append(particulax.get_posicion())
             self.__particulas.append(particulax)
         graf.set_posiciones_l(D)
         self.__mejor_posicion_global = self.__particulas[0].get_posicion()[:]
-
+        for i in self.__particulas:
+            if self.__funcion(self.__mejor_posicion_global,self.__funcion_name)> self.__funcion(i.get_posicion()[:],self.__funcion_name):
+                self.__mejor_posicion_global=i.get_posicion()[:]
     """Evaluar todas las partículas y actualizar la mejor_posicion_general."""
 
     def evaluar_enjambre(self):
         for particula in self.__particulas:
             particula.evaluar_funcion_objetivo()
-            if self.__funcion(particula.get_mejor_posicion()) < self.__funcion(self.__mejor_posicion_global):
+            if self.__funcion(particula.get_mejor_posicion(),self.__funcion_name) < self.__funcion(self.__mejor_posicion_global, self.__funcion_name):
                 self.__mejor_posicion_global = particula.get_mejor_posicion()[:]
 
     """Actualizar la velocidad y la posición de todas las partículas."""
@@ -111,7 +115,7 @@ class Enjambre:
                               self.__factor_social)
             A.append(particula.get_posicion())
         graf.set_posiciones_l(p_ultimo=A)
-        # graf.graficar()
+        
 
     """Ejecutar el PSO durante un número de iteraciones."""
 
@@ -121,7 +125,7 @@ class Enjambre:
             self.evaluar_enjambre()  # Evalúa partículas
             self.actualizar_enjambre()  # Actualiza partículas
 
-        return self.__mejor_posicion_global, self.__funcion(self.__mejor_posicion_global)
+        return self.__mejor_posicion_global, self.__funcion(self.__mejor_posicion_global,self.__funcion_name)
 
 
 class di2:
@@ -129,8 +133,6 @@ class di2:
         self.__eje_x: list = []
         self.__eje_y: list = []
 
-    def set_iteracion(self, iteracion):
-        self.__iteracion_actual = iteracion
 
     def get_eje_x(self):
         return self.__eje_x[-1]
@@ -203,4 +205,5 @@ if __name__ == "__main__":
     print("\nResultados finales:")
     print(f"Mejor posición encontrada: {mejor_posicion}")
     print(f"Valor óptimo: {best_value}")
-    graf.graficar()
+    
+    #graf.graficar()

@@ -75,9 +75,9 @@ class PSOApp(ctk.CTk):
 
         # Nuevos valores según la función elegida
         defaults = {
-            "Sphere": [50, 500, 0.8, 1.5, 2.0, -5.15, 5.15, 2],
-            "Rastrigin": [50, 200, 0.8, 1.5, 2.5, -100000, 100000, 2],
-            "Rosenbrock": [50, 200, 0.8, 1.5, 2.5, -100000, 100000, 2]
+            "Sphere": [50, 500, 0.8, 1.5, 2.0, -100000, 100000, 2],
+            "Rastrigin": [50, 200, 0.8, 1.5, 2.0, -5.12, 5.12, 2],
+            "Rosenbrock": [50, 200, 0.8, 1.5, 2.0, -100000, 100000, 2]
         }
 
         # Obtener los valores de la función seleccionada
@@ -108,10 +108,10 @@ class PSOApp(ctk.CTk):
             self.graficar_button.configure(state="disabled")
 
         #Para utilizar la función apropiada en PSO.py
-        funcion = lambda x: funcion_objetivo(x, self.selected_function)
+        #funcion = lambda x: funcion_objetivo(x, self.selected_function)
 
-        enjambre = Enjambre(num_particulas, funcion, x_min, x_max, factor_inercia, factor_personal,
-                            factor_social, dimensiones)
+        enjambre = Enjambre(num_particulas, funcion_objetivo, x_min, x_max, factor_inercia, factor_personal,
+                            factor_social,self.selected_function, dimensiones)
         mejor_posicion, best_value = enjambre.run(iteraciones)
 
         self.result_label.configure(text=f"Mejor Posición: {mejor_posicion}\nValor Óptimo: {best_value}")
