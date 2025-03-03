@@ -232,8 +232,9 @@ Con limites en:
 
 Con una gráfica que muestra los puntos críticos y sus alrededores:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b2082fc4-d850-45b2-baa0-706b38c90d36" width="150%"/>
+  <img src="https://github.com/user-attachments/assets/7d5b9159-bb2a-462a-a11c-45ba5a5ea18d"/>
 </p>
+
 
 
 
