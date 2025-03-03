@@ -20,7 +20,6 @@ class PSOApp(ctk.CTk):
         self.title("Algoritmo de optimización por Enjambre de Partículas")
 
         self.selected_function = ""
-        #self.imagen=ctk.CTkImage()
         self.protocol("WM_DELETE_WINDOW", self.close)
         self.setup_ui()
 
@@ -82,7 +81,7 @@ class PSOApp(ctk.CTk):
         self.graficar_button = ctk.CTkButton(self, text="Graficar", command=self.graficar, state="disabled")
         self.graficar_button.pack(pady=10)
 
-        self.result_label = ctk.CTkLabel(self, text="Resultados:")
+        self.result_label = ctk.CTkLabel(self, text="Resultados")
         self.result_label.pack(pady=10)
 
     def update_function(self, choice):
