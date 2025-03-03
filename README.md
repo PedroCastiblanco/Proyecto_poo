@@ -124,8 +124,8 @@ Posteriormente  se agregó la interfaz haciendo uso de la librería **Customtkin
 
 Aunque estos valores siempre se pueden cambiar es recomendable no poner un límite muy grande ya que para algunas ecuaciones después de cierta dimensión gracias a la aleatoriedad se acercaran a alguno de los otros puntos críticos existentes de la función .Además que al aumentar las dimensiones o el límite es recomendable aumentar las iteraciones.
 
-# Funciones disponibles:
-## Sphere function:
+### Funciones disponibles:
+#### Sphere function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Sphere.png" />
 </p>
@@ -147,7 +147,7 @@ Con una gráfica que muestra los puntos críticos y sus alrededores:
   <img src="https://github.com/user-attachments/assets/551cde55-5aa2-4f4e-ae96-8278f9715b4f" />
 </p>
 
-## Rastrigin function:
+#### Rastrigin function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Rastrigin.png" />
 </p>
@@ -166,7 +166,7 @@ Con una gráfica que muestra los puntos críticos y sus alrededores:
   <img src="https://github.com/user-attachments/assets/c0000e0f-735e-413b-a9d1-e7273b99d0ac" />
 </p>
 
-## Rosenbrock function:
+#### Rosenbrock function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Rosenbrock.png" />
 </p>
@@ -192,7 +192,7 @@ Con una gráfica que muestra los puntos críticos y sus alrededores:
 
 
 
-## Griewank function:
+#### Griewank function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Griewank.png" />
 </p>
@@ -214,7 +214,7 @@ Con una gráfica que muestra los puntos críticos y sus alrededores:
 </p>
 
 
-## Styblinski–Tang function:
+#### Styblinski–Tang function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/styblinski.png" />
 </p>
