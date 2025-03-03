@@ -142,6 +142,11 @@ Con limites en:
 
 Pero para mas comodidad se usaran los limites como:  $\ -1000 <= x_i<= 1000 \$
 
+Con una gráfica que muestra los puntos críticos y sus alrededores:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/551cde55-5aa2-4f4e-ae96-8278f9715b4f" />
+</p>
+
 ## Rastrigin function:
 <p align="center">
   <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Rastrigin.png" />
@@ -156,14 +161,85 @@ Con limites en:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/146f8d8e-580b-40b0-9957-5613e56b6bd9" />
 </p>
+Con una gráfica que muestra los puntos críticos y sus alrededores:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c0000e0f-735e-413b-a9d1-e7273b99d0ac" />
+</p>
+
+## Rosenbrock function:
+<p align="center">
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Rosenbrock.png" />
+</p>
+
+Que tiene un mínimo global en:
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b6ff24ad-e8bd-4aef-9509-272e78d9feae" />
+</p>
+Con limites en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c6bbd6ec-b8e9-4aa6-9d98-448c1d4189cd" />
+</p>
+
+
+Pero para mas comodidad se usaran los limites como:  $\ -1000 <= x_i<= 1000 \$
+
+Con una gráfica que muestra los puntos críticos y sus alrededores:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e36885f3-f53c-4ad6-928f-23efa95ac9e4" />
+</p>
 
 
 
+## Griewank function:
+<p align="center">
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Griewank.png" />
+</p>
+
+Que tiene un mínimo global en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a8444516-dbd4-4de4-8092-c9fd51c48aa1" />
+</p>
+Con limites en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/900c5528-91dd-4c5a-a740-73039f6248fa" />
+</p>
+
+Pero para mas comodidad se usaran los limites como:  $\ -1000 <= x_i<= 1000 \$
+
+Con una gráfica que muestra los puntos críticos y sus alrededores:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/21b01ec8-a53e-42f7-8e6d-90c007562587" />
+</p>
+
+
+## Styblinski–Tang function:
+<p align="center">
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/styblinski.png" />
+</p>
+
+Que tiene un mínimo global en:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/52d8ac22-da7d-4530-9ce3-7af82c8eb479" />
+</p>
+Con limites en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/17a8ff91-ae65-44cd-9518-171489cd52bf" />
+</p>
+
+
+Con una gráfica que muestra los puntos críticos y sus alrededores:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b2082fc4-d850-45b2-baa0-706b38c90d36" width="150%"/>
+</p>
 
 
 
 ## Bibliografía :
 + Comparación de algoritmos de optimización con deferentes funciones y dimensiones |PSO-y-ED-López Núñez Ramírez Rodríguez.pdf
++ [Test functions for optimization](https://en.wikipedia.org/wiki/Test_functions_for_optimization) 
   
 
 ## Requisitos para utilizar el programa de manera local
