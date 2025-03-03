@@ -4,8 +4,6 @@ import tkinter as tk
 import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import random
-import math
 from PIL import Image
 from PSO import Enjambre, funcion_objetivo, graf
 
