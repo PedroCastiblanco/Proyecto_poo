@@ -116,6 +116,10 @@ Como atributos que varían tenemos los limites  o bordes, la cantidad de iteraci
 
 Además de que enjambre distribuye  la cantidad de partículas ingresada uniformemente al inicializarse tiene los métodos **evaluar_enjambre** ,**actualizar_enjambre** y **run**.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b2c59f2c-aeb6-4269-864f-77cedb98ff99" />
+</p>
+
 Posteriormente  se agregó la interfaz haciendo uso de la librería **Customtkinder** para crear una ventana que contenga *labels* para mostrar las instrucciones, un *comobobox* para elegir entre las 5 ecuaciones disponibles el cual llama un método que cambia la ecuación a usar al seleccionar cualquiera de ellas, además de mostar una imagen de la misma ,junto con un *frame* que tiene los valores default los cuales se pueden variar, valores que al presionar el botón de *Buscar Mínimo* se le enviaran a al método **run** además de la función escogida anteriormente en el *combobox*, también existe un botón *Graficar* que se habilita al usar 2 dimensiones como valor, este llama el método **graficar** de la clase *grafica* que usa la librería **Matplotlib** para graficar la posición de cada punto con su repectivo *x* y *y* en cada iteración y las muestra rápidamente con un *for*.
 
 ## Bibliografía :
