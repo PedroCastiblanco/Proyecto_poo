@@ -120,12 +120,51 @@ Además de que enjambre distribuye  la cantidad de partículas ingresada uniform
   <img src="https://github.com/user-attachments/assets/b2c59f2c-aeb6-4269-864f-77cedb98ff99" />
 </p>
 
-Posteriormente  se agregó la interfaz haciendo uso de la librería **Customtkinder** para crear una ventana que contenga *labels* para mostrar las instrucciones, un *comobobox* para elegir entre las 5 ecuaciones disponibles el cual llama un método que cambia la ecuación a usar al seleccionar cualquiera de ellas, además de mostar una imagen de la misma. También se añadió un *frame* que tiene los valores por defecto, acompañador por inputs para ajustar manualmente los parámetros del algoritmo (si se desea); parámetros que al presionar el botón de *Buscar Mínimo* se le enviaran a al método **run** además de la función escogida anteriormente en el *combobox*, también existe un botón *Graficar* que se habilita al usar 2 dimensiones como valor, este llama el método **graficar** de la clase *grafica* que usa la librería **Matplotlib** para graficar la posición de cada punto con su repectivo *x* y *y* en cada iteración y las muestra rápidamente con un *for*.
+Posteriormente  se agregó la interfaz haciendo uso de la librería **Customtkinder** para crear una ventana que contenga *labels* para mostrar las instrucciones, un *comobobox* para elegir entre las 5 ecuaciones disponibles el cual llama un método que cambia la ecuación a usar al seleccionar cualquiera de ellas, además de mostar una imagen de la misma ,junto con un *frame* que tiene los valores default los cuales se pueden variar, valores que al presionar el botón de *Buscar Mínimo* se le enviaran a al método **run** además de la función escogida anteriormente en el *combobox*, también existe un botón *Graficar* que se habilita al usar 2 dimensiones como valor, este llama el método **graficar** de la clase *grafica* que usa la librería **Matplotlib** para graficar la posición de cada punto con su repectivo *x* y *y* en cada iteración y las muestra rápidamente con un *for*.
+
+Aunque estos valores siempre se pueden cambiar es recomendable no poner un límite muy grande ya que para algunas ecuaciones después de cierta dimensión gracias a la aleatoriedad se acercaran a alguno de los otros puntos críticos existentes de la función .Además que al aumentar las dimensiones o el límite es recomendable aumentar las iteraciones.
+
+# Funciones disponibles:
+## Sphere function:
+<p align="center">
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Sphere.png" />
+</p>
+
+Que tiene un mínimo global en:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a8babdb5-3e3a-499a-b43a-07173670ef34" />
+</p>
+Con limites en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/900c5528-91dd-4c5a-a740-73039f6248fa" />
+</p>
+
+Pero para mas comodidad se usaran los limites como:  $\ -1000 <= x_i<= 1000 \$
+
+## Rastrigin function:
+<p align="center">
+  <img src="https://github.com/PedroCastiblanco/Proyecto_poo/blob/main/Rastrigin.png" />
+</p>
+
+Que tiene un mínimo global en:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a8444516-dbd4-4de4-8092-c9fd51c48aa1" />
+</p>
+Con limites en:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/146f8d8e-580b-40b0-9957-5613e56b6bd9" />
+</p>
+
+
+
+
+
 
 ## Bibliografía :
 + Comparación de algoritmos de optimización con deferentes funciones y dimensiones |PSO-y-ED-López Núñez Ramírez Rodríguez.pdf
   
-
 
 ## Requisitos para utilizar el programa de manera local
  + Librería customtkinter v 5.2.2 (para la interfaz de usuario)
