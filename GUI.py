@@ -32,14 +32,14 @@ class PSOApp(ctk.CTk):
                                         text="Bienvenido, con este programa podras calcular los valores máximos y minimos para cualquiera de las siguientes funciones",
                                         fg_color="transparent")
 
-        self.label1.pack(pady=(30, 10)) # Padding en y
+        self.label1.pack(pady=5) # Padding en y
 
         ctk.CTkLabel(self, text="Selecciona la función de optimización:").pack()
 
         # self.function_var = ctk.StringVar(value="Sphere")
         self.function_selector = ctk.CTkComboBox(self, values=["Sphere", "Rastrigin", "Rosenbrock","Griewank","Styblinski Tang"],
                                                  command=self.update_function, variable=self.selected_function)
-        self.function_selector.pack(pady=10)
+        self.function_selector.pack()
 
 
         self.Sphere= ctk.CTkImage(light_image=Image.open('Sphere.png') , size=(200,100))
@@ -49,7 +49,7 @@ class PSOApp(ctk.CTk):
         self.Styblinski= ctk.CTkImage(light_image=Image.open('styblinski.png'),size=(350,100))
 
         self.label_imagen=ctk.CTkLabel(self,text="")
-        self.label_imagen.pack(pady=20, padx=200)
+        self.label_imagen.pack( pady=5,padx=200)
 
         # Recomendaciones
         ctk.CTkLabel(self, text="A continuación, se cargan por defecto los valores sugeridos para obtener el mejor resultado en los cálculos. Sin embargo, recuerda que si quieres puedes cambiarlos a tu gusto",
@@ -59,7 +59,7 @@ class PSOApp(ctk.CTk):
                      #fg_color="transparent").pack()
 
         self.param_frame = ctk.CTkFrame(self)
-        self.param_frame.pack(pady=10)
+        self.param_frame.pack()
 
         self.entries = {}
         params = ["Num Partículas", "Iteraciones", "Factor Inercia", "Factor Personal", "Factor Social", "X Min",
