@@ -85,8 +85,8 @@ classDiagram
         +graficar(xlim:float)
     }
     Enjambre "1"*--"*" Particula
-    PSOApp "1"*--"*" Enjambre
-    PSOApp "1"*--"*" grafica
+    PSOApp <--Enjambre
+    PSOApp <-- grafica
 
     class PSOApp{
         -selected_function:str
