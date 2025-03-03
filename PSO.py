@@ -128,11 +128,14 @@ class Enjambre:
         return self.__mejor_posicion_global, self.__funcion(self.__mejor_posicion_global,self.__funcion_name)
 
 
-class di2:
+class grafica:
     def __init__(self):
         self.__eje_x: list = []
         self.__eje_y: list = []
+        self.__estado_w:bool=False
 
+    def valid(self):
+        self.__estado_w=True 
 
     def get_eje_x(self):
         return self.__eje_x[-1]
@@ -148,24 +151,33 @@ class di2:
         self.__eje_x.append(x)
         self.__eje_y.append(y)
 
-    def graficar(self):
-
+    def graficar(self,xlim):
+        """Grafica los datos en 2 dimensiones despues de guardarn todas las teraciones de x,y"""
         plt.xlabel("x")
         plt.ylabel("y")
-
         for i in range(len(self.__eje_x)):
             plt.clf()
             # plt.xlim(min(self.__eje_x[i]),max(self.__eje_x[i]))
             # plt.xlim(min(self.__eje_y[i]),max(self.__eje_y[i]))
-            # plt.xlim(-15,15)
-            # plt.ylim(-15,15)
+            plt.xlim(-xlim,xlim)
+            plt.ylim(-xlim,xlim)
             plt.scatter(self.__eje_x[i], self.__eje_y[i], c="red")
             plt.title(f"Posiciones ciclo: {i + 1}")
-            plt.pause(0.001)
+            plt.grid()
+            plt.pause(0.01)
+            if self.__estado_w:
+                break
+            
         plt.show()
 
+    
     # Ejemplo para minimizar una función
 
+def productoria(x:list):
+    a=1
+    for i in x:      
+        a=a*i
+    return a
 
 def funcion_objetivo(x, function_name):
     if (function_name == 'Sphere'):
@@ -180,6 +192,14 @@ def funcion_objetivo(x, function_name):
         " Ejemplo Rosenbrock function"
         n = len(x)
         return sum([100 * (x[i + 1] - (x[i] ** 2)) ** 2 + (1 - x[i]) ** 2 for i in range(n - 1)])
+    elif (function_name == 'Griewank'):
+        " Ejemplo Griewank function"
+        n = len(x)
+        return ( 1+ (1/4000 *sum([xi ** 2 for xi in x])) - productoria([math.cos((x[i])/(math.sqrt(i+1))) for i in range(n)]) )
+    elif (function_name == 'Styblinski Tang'):
+        " Ejemplo Styblinski Tang function"
+        n = len(x)
+        return (1/2 *sum([ (xi**4 - 16*xi**2 + 5*xi) for xi in x]))
     else:
         raise ValueError("Función no reconocida")
 
@@ -194,10 +214,10 @@ x_min = -5.15  # Límite inferior
 x_max = 5.15  # Límite superior
 dimensiones = 2  # Dimensiones de la funcion poner entre 2 y 30
 
-graf = di2()
+graf = grafica()
 # Inicialización:
 if __name__ == "__main__":
-    enjambre = Enjambre(num_particulas, funcion_objetivo, x_min, x_max, factor_inercia, factor_personal, factor_social,
+    enjambre = Enjambre(num_particulas, funcion_objetivo, x_min, x_max, factor_inercia, factor_personal, factor_social,"Sphere",
                         dimensiones)
     mejor_posicion, best_value = enjambre.run(iteraciones_maximas)
 

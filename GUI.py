@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import random
 import math
+from PIL import Image
 from PSO import Enjambre, funcion_objetivo, graf
 
 # Configuración inicial
@@ -19,28 +20,44 @@ class PSOApp(ctk.CTk):
         self.title("Algoritmo de optimización por Enjambre de Partículas")
 
         self.selected_function = ""
+        #self.imagen=ctk.CTkImage()
+        self.protocol("WM_DELETE_WINDOW", self.close)
         self.setup_ui()
+
+    def close(self):
+        graf.valid()
+        self.destroy()
+
 
     def setup_ui(self):
         self.defaults = [0, 0, 0, 0, 0, 0, 0, 0]
         self.label1 = ctk.CTkLabel(self,
                                         text="Bienvenido, con este programa podras calcular los valores máximos y minimos para cualquiera de las siguientes funciones",
-                                        fg_color="transparent").pack(pady=20)
+                                        fg_color="transparent").pack()
 
-        ctk.CTkLabel(self, text="Selecciona la función de optimización:").pack(pady=10)
+        ctk.CTkLabel(self, text="Selecciona la función de optimización:").pack()
 
         # self.function_var = ctk.StringVar(value="Sphere")
-        self.function_selector = ctk.CTkComboBox(self, values=["Sphere", "Rastrigin", "Rosenbrock"],
+        self.function_selector = ctk.CTkComboBox(self, values=["Sphere", "Rastrigin", "Rosenbrock","Griewank","Styblinski Tang"],
                                                  command=self.update_function, variable=self.selected_function)
         self.function_selector.pack(pady=10)
 
 
+        self.Sphere= ctk.CTkImage(light_image=Image.open('Sphere.png') , size=(200,100))
+        self.Rastrigin= ctk.CTkImage(light_image=Image.open('Rastrigin.png'),size=(350,100))
+        self.Rosenbrock= ctk.CTkImage(light_image=Image.open('Rosenbrock.png'),size=(350,100))
+        self.Griewank= ctk.CTkImage(light_image=Image.open('Griewank.png'),size=(400,100))
+        self.Styblinski= ctk.CTkImage(light_image=Image.open('styblinski.png'),size=(350,100))
+
+        self.label_imagen=ctk.CTkLabel(self,text="")
+        self.label_imagen.pack(padx=200)
+
         # Recomendaciones
-        ctk.CTkLabel(self, text="A continuación, se cargan por defecto los valores sugeridos para obtener el mejor resultado en los cálculos.",
+        ctk.CTkLabel(self, text="A continuación, se cargan por defecto los valores sugeridos para obtener el mejor resultado en los cálculos. Sin embargo, recuerda que si quieres puedes cambiarlos a tu gusto",
                                         fg_color="transparent").pack()
-        ctk.CTkLabel(self,
-                     text="Sin embargo, recuerda que si quieres puedes cambiarlos a tu gusto",
-                     fg_color="transparent").pack()
+        #ctk.CTkLabel(self,
+                     #text="Sin embargo, recuerda que si quieres puedes cambiarlos a tu gusto",
+                     #fg_color="transparent").pack()
 
         self.param_frame = ctk.CTkFrame(self)
         self.param_frame.pack(pady=10)
@@ -71,13 +88,25 @@ class PSOApp(ctk.CTk):
     def update_function(self, choice):
         """Actualiza la función seleccionada."""
         self.selected_function = choice
-        print('La función elegida fue', self.selected_function);
+        if (choice == 'Sphere'):
+            self.label_imagen.configure(image=self.Sphere)
+        elif(choice == 'Rastrigin'):
+            self.label_imagen.configure(image=self.Rastrigin)
+        elif (choice == 'Rosenbrock'):
+            self.label_imagen.configure(image=self.Rosenbrock)
+        elif (choice == 'Griewank'):
+            self.label_imagen.configure(image=self.Griewank)
+        elif (choice == 'Styblinski Tang'):
+            self.label_imagen.configure(image=self.Styblinski)
+        print('La función elegida fue', self.selected_function)
 
         # Nuevos valores según la función elegida
         defaults = {
-            "Sphere": [50, 500, 0.8, 1.5, 2.0, -100000, 100000, 2],
-            "Rastrigin": [50, 200, 0.8, 1.5, 2.0, -5.12, 5.12, 2],
-            "Rosenbrock": [50, 200, 0.8, 1.5, 2.0, -100000, 100000, 2]
+            "Sphere": [50, 500, 0.8, 1.5, 2.0, -1000, 1000, 2],
+            "Rastrigin": [50, 2000, 0.8, 1.5, 2.0, -5.12, 5.12, 2],
+            "Rosenbrock": [50, 2000, 0.8, 1.5, 2.0, -1000, 1000, 2],
+            "Griewank": [50, 2000, 0.8, 1.5, 2.0, -1000, 1000, 2],
+            "Styblinski Tang": [50, 2000, 0.8, 1.5, 2.0, -5, 5, 2]
         }
 
         # Obtener los valores de la función seleccionada
@@ -114,10 +143,13 @@ class PSOApp(ctk.CTk):
                             factor_social,self.selected_function, dimensiones)
         mejor_posicion, best_value = enjambre.run(iteraciones)
 
-        self.result_label.configure(text=f"Mejor Posición: {mejor_posicion}\nValor Óptimo: {best_value}")
+        if(self.selected_function=="Styblinski Tang"):
+            self.result_label.configure(text=f"Mejor Posición: {mejor_posicion}\nValor Óptimo: -39.16617 n < {best_value/dimensiones} n < -39.16616 n")
+        else:
+            self.result_label.configure(text=f"Mejor Posición: {mejor_posicion}\nValor Óptimo: {best_value}")
 
     def graficar(self):
-        graf.graficar()
+        graf.graficar(float(self.entries["X Max"].get()))
 
 
 if __name__ == "__main__":
