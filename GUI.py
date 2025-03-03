@@ -16,7 +16,7 @@ ctk.set_appearance_mode("dark")
 class PSOApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("1000x700")
+        self.geometry("1000x800")
         self.title("Algoritmo de optimización por Enjambre de Partículas")
 
         self.selected_function = ""
@@ -32,7 +32,9 @@ class PSOApp(ctk.CTk):
         self.defaults = [0, 0, 0, 0, 0, 0, 0, 0]
         self.label1 = ctk.CTkLabel(self,
                                         text="Bienvenido, con este programa podras calcular los valores máximos y minimos para cualquiera de las siguientes funciones",
-                                        fg_color="transparent").pack()
+                                        fg_color="transparent")
+
+        self.label1.pack(pady=(30, 10)) # Padding en y
 
         ctk.CTkLabel(self, text="Selecciona la función de optimización:").pack()
 
@@ -49,7 +51,7 @@ class PSOApp(ctk.CTk):
         self.Styblinski= ctk.CTkImage(light_image=Image.open('styblinski.png'),size=(350,100))
 
         self.label_imagen=ctk.CTkLabel(self,text="")
-        self.label_imagen.pack(padx=200)
+        self.label_imagen.pack(pady=20, padx=200)
 
         # Recomendaciones
         ctk.CTkLabel(self, text="A continuación, se cargan por defecto los valores sugeridos para obtener el mejor resultado en los cálculos. Sin embargo, recuerda que si quieres puedes cambiarlos a tu gusto",
