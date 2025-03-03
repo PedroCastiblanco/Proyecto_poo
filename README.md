@@ -76,11 +76,13 @@ classDiagram
 
     class grafica {
         -__eje_x: list 
-        -__eje_y: list 
+        -__eje_y: list
+        -__estado_w:bool
+        +valid()
         +get_eje_x():list
         +get_eje_y():list
         +set_posiciones_l(p_ultimo: list)
-        +graficar()
+        +graficar(xlim:float)
     }
     Enjambre "1"*--"*" Particula
     PSOApp "1"*--"*" Enjambre
@@ -89,6 +91,7 @@ classDiagram
     class PSOApp{
         -selected_function:str
         +__init__()
+        +close()
         +setup_ui()
         +update_function(choice:str)
         +run_pso()
